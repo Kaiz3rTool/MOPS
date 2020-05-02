@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.310393 1.55327
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -11.9667 -19.9663
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	pointwrangle1 "" 1 "input1"
 }
 inputs
 {
+0 	pointwrangle1 0 1
 }
 stat
 {
-  create 1556863082
-  modify 1556863092
+  create 1584163373
+  modify 1584163506
   author Henry@LAPPY586
   access 0777
 }
@@ -78,7 +80,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/Apply_Attributes1.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.2
+type = MOPS::Apply_Attributes::1.4
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -92,12 +94,12 @@ connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
+2 "output1"
 }
 inputsNamed3
 {
-1 	MOPS_IN 0 1 "input1"
-2 	switch_do_pscale 0 1 "input2"
+0 	MOPS_IN 0 1 "input1"
+1 	switch_do_pscale 0 1 "input2"
 }
 inputs
 {
@@ -106,8 +108,8 @@ inputs
 }
 stat
 {
-  create 1556863090
-  modify 1556863154
+  create 1584163373
+  modify 1584163465
   author Henry@LAPPY586
   access 0777
 }
@@ -133,17 +135,23 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
     }
+    channel do_translate {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_P\") }
+    }
     channel do_rotate {
       lefttype = extend
       righttype = extend
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../switch_do_orient/input\") }
     }
-    channel do_falloff {
+    channel local_space {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../do_falloff2\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../local_space\") }
     }
     channel rotate_mode {
       lefttype = extend
@@ -151,23 +159,23 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../rotate_mode\") }
     }
-    channel scale_mode {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../scale_mode\") }
-    }
     channel rotate_order {
       lefttype = extend
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../order\") }
     }
-    channel local_space {
+    channel scale_mode {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../local_space\") }
+      segment { length = 0 expr = ch(\"../scale_mode\") }
+    }
+    channel do_falloff {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_falloff2\") }
     }
   }
 
@@ -179,20 +187,27 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
-do_translate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+sepparm	[ 0	locks=0 ]	(	)
+matchmode	[ 0	locks=0	autoscope=0 ]	(	"0"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	0 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	0 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-do_falloff	[ 0	locks=0	autoscope=0 ]	(	[ do_falloff	1 ] 	)
-do_pivots	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_pivots	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+sepparm2	[ 0	locks=0 ]	(	)
+local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	0 ] 	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
-local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
-do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
+do_falloff	[ 0	locks=0	autoscope=0 ]	(	[ do_falloff	0 ] 	)
+falloff_attribute	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
+ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 do_copy_attrs	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 attribname	[ 0	locks=0	autoscope=0 ]	(	""	)
-do_orient	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_orient	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_output_scale	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+sepparm3	[ 0	locks=0 ]	(	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -235,8 +250,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1556863083
+  create 1584163374
+  modify 1584163598
   author Henry@LAPPY586
   access 0777
 }
@@ -422,8 +437,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1556863083
+  create 1584163374
+  modify 1584163598
   author Henry@LAPPY586
   access 0777
 }
@@ -479,6 +494,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../seed5\") }
     }
+    channel seedattrib {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../seed_attr\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -493,7 +514,7 @@ class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 name	[ 0	locks=0	autoscope=0 ]	(	scale	)
 operation	[ 0	locks=0	autoscope=0 ]	(	set	)
 scale	[ 0	locks=0	autoscope=0 ]	(	1	)
-folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	1	1	)
 distribution	[ 0	locks=0	autoscope=0 ]	(	uniform	)
 dimensions	[ 0	locks=0	autoscope=0 ]	(	3	)
 allsame	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -538,7 +559,7 @@ usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
 seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
 useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-seedattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	id ] 	)
 ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
 ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
 ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"monotonecubic"	)
@@ -603,8 +624,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1556863083
+  create 1584163374
+  modify 1584163586
   author Henry@LAPPY586
   access 0777
 }
@@ -636,6 +657,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 5286 5286 expr = ch(\"../seed3\") }
     }
+    channel seedattrib {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../seed_attr\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -650,7 +677,7 @@ class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 name	[ 0	locks=0	autoscope=0 ]	(	pscale	)
 operation	[ 0	locks=0	autoscope=0 ]	(	set	)
 scale	[ 0	locks=0	autoscope=0 ]	(	1	)
-folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	1	1	)
 distribution	[ 0	locks=0	autoscope=0 ]	(	uniform	)
 dimensions	[ 0	locks=0	autoscope=0 ]	(	1	)
 allsame	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -693,9 +720,9 @@ visualize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 nvisualizepts	[ 0	locks=0	autoscope=0 ]	(	10000	)
 usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
-seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0.68000000000000005 ] 	)
+seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
 useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-seedattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	id ] 	)
 ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
 ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
 ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"monotonecubic"	)
@@ -752,7 +779,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	Apply_Attributes1 0 1 "input1"
+0 	Apply_Attributes1 2 1 "input1"
 }
 inputs
 {
@@ -760,8 +787,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1556863090
+  create 1584163374
+  modify 1584163586
   author Henry@LAPPY586
   access 0777
 }
@@ -793,18 +820,11 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 3189 3189 expr = ch(\"../seed4\") }
     }
-    channel useseedattrib {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../useseedattrib\") }
-    }
     channel seedattrib {
       lefttype = extend
       righttype = extend
-      defaultString = \"id\"
       flags = 0
-      segment { length = 0 expr = chs(\"../seedattrib\") }
+      segment { length = 0 expr = chs(\"../seed_attr\") }
     }
   }
 
@@ -864,7 +884,7 @@ nvisualizepts	[ 0	locks=0	autoscope=0 ]	(	10000	)
 usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
 seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
-useseedattrib	[ 0	locks=0	autoscope=0 ]	(	[ useseedattrib	0 ] 	)
+useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	id ] 	)
 ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
 ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
@@ -922,7 +942,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	Apply_Attributes1 0 1 "input1"
+0 	Apply_Attributes1 2 1 "input1"
 1 	attribrandomize4 1 1 "input2"
 }
 inputs
@@ -932,8 +952,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1556863093
+  create 1584163374
+  modify 1584163461
   author Henry@LAPPY586
   access 0777
 }
@@ -980,33 +1000,34 @@ Content-Type: text/plain
 {
 version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../Apply_Attributes1/group\")`	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+falloff_attr	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 strength	[ 0	locks=0	autoscope=0 ]	(	[ strength	1 ] 	)
 switchclamp	[ 0	locks=0	autoscope=0 ]	(	[ switchclamp	0 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
 do_preview	[ 0	locks=0	autoscope=0 ]	(	[ do_preview	0 ] 	)
-folder0	[ 0	locks=0 ]	(	0	)
-do_sprite	[ 0	locks=0 ]	(	"on"	)
-spritescale	[ 0	locks=0 ]	(	1	)
-override_scale	[ 0	locks=0 ]	(	"off"	)
-ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
-falloff_heatmap	[ 0	locks=0 ]	(	5	)
-falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
-falloff_heatmap1c	[ 0	locks=0 ]	(	0.036199998110532761	0	0.5429999828338623	)
-falloff_heatmap1interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap2pos	[ 0	locks=0 ]	(	0.27027025818824768	)
-falloff_heatmap2c	[ 0	locks=0 ]	(	0.7369999885559082	0	0	)
-falloff_heatmap2interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap3pos	[ 0	locks=0 ]	(	0.71814674139022827	)
-falloff_heatmap3c	[ 0	locks=0 ]	(	1	0.28333333134651184	0	)
-falloff_heatmap3interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap4pos	[ 0	locks=0 ]	(	0.90154439210891724	)
-falloff_heatmap4c	[ 0	locks=0 ]	(	0.89999997615814209	0.89999997615814209	0	)
-falloff_heatmap4interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap5pos	[ 0	locks=0 ]	(	1	)
-falloff_heatmap5c	[ 0	locks=0 ]	(	1	1	1	)
-falloff_heatmap5interp	[ 0	locks=0 ]	(	"linear"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	)
+do_sprite	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+spritescale	[ 0	locks=0	autoscope=0 ]	(	1	)
+override_scale	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+ramp_preset	[ 0	locks=0	autoscope=0 ]	(	"heatmap"	)
+falloff_heatmap	[ 0	locks=0	autoscope=0 ]	(	5	)
+falloff_heatmap1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+falloff_heatmap1c	[ 0	locks=0	autoscope=0 ]	(	0.036199998110532761	0	0.5429999828338623	)
+falloff_heatmap1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+falloff_heatmap2pos	[ 0	locks=0	autoscope=0 ]	(	0.27027025818824768	)
+falloff_heatmap2c	[ 0	locks=0	autoscope=0 ]	(	0.7369999885559082	0	0	)
+falloff_heatmap2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+falloff_heatmap3pos	[ 0	locks=0	autoscope=0 ]	(	0.71814674139022827	)
+falloff_heatmap3c	[ 0	locks=0	autoscope=0 ]	(	1	0.28333333134651184	0	)
+falloff_heatmap3interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+falloff_heatmap4pos	[ 0	locks=0	autoscope=0 ]	(	0.90154439210891724	)
+falloff_heatmap4c	[ 0	locks=0	autoscope=0 ]	(	0.89999997615814209	0.89999997615814209	0	)
+falloff_heatmap4interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+falloff_heatmap5pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+falloff_heatmap5c	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+falloff_heatmap5interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1050,8 +1071,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1556863083
+  create 1584163374
+  modify 1584163469
   author Henry@LAPPY586
   access 0777
 }
@@ -1242,6 +1263,19 @@ Content-Type: text/plain
         default { "0" "0" "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
+    parm {
+        name    "rotation_scale"
+        label   "Rotation Scale"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle1.chn"
@@ -1290,6 +1324,18 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 360 360 expr = ch(\"../max4z\") }
     }
+    channel rotation_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../rotation_scale\") }
+    }
+    channel bindname1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../seed_attr\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1312,11 +1358,13 @@ float x = (fit01(rand(@id+seed), min.x, max.x));
 float y = (fit01(rand(@id+seed*123), min.y, max.y));
 float z = (fit01(rand(@id+seed*456), min.z, max.z));
 
-v@euler = set(x,y,z);"	)
+float scale = ch(\"rotation_scale\");
+
+v@euler = set(x,y,z) * scale;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	1	)
 groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
 vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
@@ -1325,10 +1373,14 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0 ]	(	0	0	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
 seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
-min	[ 0	locks=0	autoscope=0 ]	(	[ minx	-360 ] 	[ miny	-360 ] 	[ minz	-360 ] 	)
-max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	360 ] 	[ maxy	360 ] 	[ maxz	360 ] 	)
+min	[ 0	locks=0	autoscope=0 ]	(	[ minx	0 ] 	[ miny	0 ] 	[ minz	0 ] 	)
+max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	0 ] 	[ maxy	0 ] 	[ maxz	0 ] 	)
+rotation_scale	[ 0	locks=0	autoscope=0 ]	(	[ rotation_scale	0 ] 	)
+bindname1	[ 0	locks=0	autoscope=0 ]	(	[ bindname1	"" ] 	)
+bindparm1	[ 0	locks=0	autoscope=0 ]	(	id	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1360,11 +1412,11 @@ connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	switch_has_no_id 2 1 "input1"
+1 	switch_has_no_id 0 1 "input1"
 }
 inputs
 {
@@ -1372,8 +1424,8 @@ inputs
 }
 stat
 {
-  create 1528936208
-  modify 1556863083
+  create 1584163374
+  modify 1584163424
   author Henry@LAPPY586
   access 0777
 }
@@ -1388,27 +1440,28 @@ Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"v@euler = 0;
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"v@euler = 0;
 v@scale = 1;
 f@pscale = 1;"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1440,11 +1493,11 @@ connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	init_values 1 1 "input1"
+1 	init_values 0 1 "input1"
 }
 inputs
 {
@@ -1452,8 +1505,8 @@ inputs
 }
 stat
 {
-  create 1536946673
-  modify 1556863083
+  create 1584163374
+  modify 1584163469
   author Henry@LAPPY586
   access 0777
 }
@@ -1651,19 +1704,18 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/randomize_P.chn"
 Content-Type: text/plain
 
 {
-    channel local {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../local_space\") }
-    }
     channel seed {
       lefttype = extend
       righttype = extend
@@ -1706,6 +1758,18 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../maxpz\") }
     }
+    channel local {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../local_space\") }
+    }
+    channel bindname1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../seed_attr\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1714,18 +1778,18 @@ Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"float seed = ch(\"seed\");
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"float seed = ch(\"seed\");
 vector min = chv(\"min\");
 vector max = chv(\"max\");
-float x = fit01(rand(i@id+seed), min.x, max.x);
-float y = fit01(rand(i@id+seed+345), min.y, max.y);
-float z = fit01(rand(i@id+seed+678), min.z, max.z);
+float x = fit01(rand(@id+seed), min.x, max.x);
+float y = fit01(rand(@id+seed+345), min.y, max.y);
+float z = fit01(rand(@id+seed+678), min.z, max.z);
 int local = chi(\"local\");
 vector translate = set(x,y,z);
 if(local==1) { 
@@ -1734,23 +1798,26 @@ if(local==1) {
     translate = qrotate(q, translate);
 }
 @P += translate;"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-folder1	[ 0	locks=0 ]	(	0	0	)
-seed	[ 0	locks=0 ]	(	[ seed	0 ] 	)
-min	[ 0	locks=0 ]	(	[ minx	0 ] 	[ miny	0 ] 	[ minz	0 ] 	)
-max	[ 0	locks=0 ]	(	[ maxx	0 ] 	[ maxy	0 ] 	[ maxz	0 ] 	)
-local	[ 8	locks=0 ]	(	[ local	1 ] 	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	1	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
+seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
+min	[ 0	locks=0	autoscope=0 ]	(	[ minx	0 ] 	[ miny	0 ] 	[ minz	0 ] 	)
+max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	0 ] 	[ maxy	0 ] 	[ maxz	0 ] 	)
+local	[ 0	locks=0	autoscope=0 ]	(	[ local	0 ] 	)
+bindname1	[ 0	locks=0	autoscope=0 ]	(	[ bindname1	"" ] 	)
+bindparm1	[ 0	locks=0	autoscope=0 ]	(	id	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1786,16 +1853,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	(0) "" 1 "input1"
+1 	attribswap1 0 1 "input1"
 }
 inputs
 {
-0 	(0) 0 1
+0 	attribswap1 0 1
 }
 stat
 {
-  create 1528499331
-  modify 1541964855
+  create 1584163374
+  modify 1584163382
   author Henry@LAPPY586
   access 0777
 }
@@ -1821,7 +1888,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"18.0.391"
 	}
 }
 
@@ -1847,8 +1914,8 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	init_values 1 1 "input1"
-2 	randomize_P 1 1 "input2"
+1 	init_values 0 1 "input1"
+2 	randomize_P 0 1 "input2"
 }
 inputs
 {
@@ -1857,8 +1924,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1556863083
+  create 1584163374
+  modify 1584163384
   author Henry@LAPPY586
   access 0777
 }
@@ -1896,7 +1963,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"18.0.391"
 	}
 }
 
@@ -1932,8 +1999,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1556863083
+  create 1584163374
+  modify 1584163384
   author Henry@LAPPY586
   access 0777
 }
@@ -1971,7 +2038,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"18.0.391"
 	}
 }
 
@@ -2007,8 +2074,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1556863083
+  create 1584163374
+  modify 1584163384
   author Henry@LAPPY586
   access 0777
 }
@@ -2046,7 +2113,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"18.0.391"
 	}
 }
 
@@ -2063,7 +2130,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0708374 -15.4412
+position -0.0708374 -16.5013
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2071,16 +2138,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_do_falloff 0 1 "input1"
+0 	attribswap2 0 1 "input1"
 }
 inputs
 {
-0 	switch_do_falloff 0 1
+0 	attribswap2 0 1
 }
 stat
 {
-  create 1528499331
-  modify 1530403797
+  create 1584163374
+  modify 1584163388
   author Henry@LAPPY586
   access 0777
 }
@@ -2105,7 +2172,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"18.0.391"
 	}
 }
 
@@ -2141,8 +2208,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1556863083
+  create 1584163374
+  modify 1584163384
   author Henry@LAPPY586
   access 0777
 }
@@ -2180,7 +2247,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"18.0.391"
 	}
 }
 
@@ -2202,12 +2269,12 @@ connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
+2 "output1"
 }
 inputsNamed3
 {
-1 	Apply_Attributes1 0 1 "input1"
-2 	Combine_Falloffs1 2 1 "input2"
+0 	Apply_Attributes1 2 1 "input1"
+1 	Combine_Falloffs1 2 1 "input2"
 }
 inputs
 {
@@ -2216,8 +2283,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1556863090
+  create 1584163374
+  modify 1584163384
   author Henry@LAPPY586
   access 0777
 }
@@ -2255,7 +2322,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"18.0.391"
 	}
 }
 
@@ -2277,12 +2344,12 @@ connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	MOPS_IN 0 1 "input1"
-1 	enumerate1 1 1 "input2"
+1 	MOPS_IN 0 1 "input1"
+2 	enumerate1 0 1 "input2"
 }
 inputs
 {
@@ -2291,9 +2358,9 @@ inputs
 }
 stat
 {
-  create 1541964861
-  modify 1556863083
-  author henry_foster@mvp-production2-mac03.local
+  create 1584163374
+  modify 1584163384
+  author Henry@LAPPY586
   access 0777
 }
 color UT_Color RGB 0.8 1 0.7 
@@ -2320,7 +2387,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2330,7 +2397,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"18.0.391"
 	}
 }
 
@@ -2352,11 +2419,11 @@ connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	MOPS_IN 0 1 "input1"
+1 	MOPS_IN 0 1 "input1"
 }
 inputs
 {
@@ -2364,9 +2431,9 @@ inputs
 }
 stat
 {
-  create 1541964870
-  modify 1541964932
-  author henry_foster@mvp-production2-mac03.local
+  create 1584163374
+  modify 1584163392
+  author Henry@LAPPY586
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -2380,9 +2447,13 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"point"	)
-attribname	[ 0	locks=0 ]	(	id	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+usepieceattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0	autoscope=0 ]	(	name	)
+attribname	[ 0	locks=0	autoscope=0 ]	(	id	)
+attribtype	[ 0	locks=0	autoscope=0 ]	(	"int"	)
+prefix	[ 0	locks=0	autoscope=0 ]	(	piece	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2392,7 +2463,152 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"18.0.391"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.init"
+Content-Type: text/plain
+
+type = attribswap
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.110429 5.90517
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1584163374
+  modify 1584163398
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.chn"
+Content-Type: text/plain
+
+{
+    channel srcattribs1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../falloff_attr\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numswaps	[ 0	locks=0	autoscope=0 ]	(	1	)
+enable1	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+method1	[ 0	locks=0	autoscope=0 ]	(	"swap"	)
+class1	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+srcattribs1	[ 0	locks=0	autoscope=0 ]	(	[ srcattribs1	"" ] 	)
+dstattribs1	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
+typeinfo1	[ 0	locks=0	autoscope=0 ]	(	"dest"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.391"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.init"
+Content-Type: text/plain
+
+type = attribswap
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.0708374 -15.0466
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	switch_do_falloff 2 1 "input1"
+}
+inputs
+{
+0 	switch_do_falloff 0 1
+}
+stat
+{
+  create 1584163374
+  modify 1584163395
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numswaps	[ 0	locks=0	autoscope=0 ]	(	1	)
+enable1	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+method1	[ 0	locks=0	autoscope=0 ]	(	"swap"	)
+class1	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+srcattribs1	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
+dstattribs1	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../attribswap1/srcattribs1\")`	)
+typeinfo1	[ 0	locks=0	autoscope=0 ]	(	"dest"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.391"
 	}
 }
 
@@ -2400,7 +2616,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-18
+20
 Apply_Attributes1
 attribrandomize1
 attribrandomize2
@@ -2419,6 +2635,8 @@ init_values
 randomize_P
 switch_has_no_id
 enumerate1
+attribswap1
+attribswap2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

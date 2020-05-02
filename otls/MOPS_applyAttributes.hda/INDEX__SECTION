@@ -10,7 +10,7 @@ Inputs:       2 to 2
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Mon Jan  7 07:24:00 2019
+Modified:     Fri Jan  4 00:24:00 2019
 
 Operator:     MOPS::Apply_Attributes::1.1
 Label:        MOPs Apply Attributes
@@ -24,7 +24,7 @@ Inputs:       2 to 2
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Tue Mar 12 20:28:30 2019
+Modified:     Fri Mar 15 14:28:30 2019
 
 Operator:     MOPS::Apply_Attributes::1.2
 Label:        MOPs Apply Attributes
@@ -38,5 +38,33 @@ Inputs:       2 to 2
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Thu Jun 13 15:20:36 2019
+Modified:     Sun Jun 16 09:20:36 2019
+
+Operator:     MOPS::Apply_Attributes::1.3
+Label:        MOPs Apply Attributes
+Path:         oplib:/MOPS::Sop/Apply_Attributes::1.3?MOPS::Sop/Apply_Attributes::1.3
+Icon:         opdef:/MOPS::Sop/Apply_Attributes::1.3?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       2 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Mon Sep 16 09:42:50 2019
+
+Operator:     MOPS::Apply_Attributes::1.4
+Label:        MOPs Apply Attributes
+Path:         oplib:/MOPS::Sop/Apply_Attributes::1.4?MOPS::Sop/Apply_Attributes::1.4
+Icon:         opdef:/MOPS::Sop/Apply_Attributes::1.4?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       2 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Mar 25 19:27:27 2020
 

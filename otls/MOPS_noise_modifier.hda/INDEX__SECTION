@@ -10,5 +10,19 @@ Inputs:       1 to 1
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Fri May 10 17:42:44 2019
+Modified:     Wed Aug 14 00:29:48 2019
+
+Operator:     MOPS::Noise_Modifier::1.1
+Label:        MOPs Noise Modifier
+Path:         oplib:/MOPS::Sop/Noise_Modifier::1.1?MOPS::Sop/Noise_Modifier::1.1
+Icon:         opdef:/MOPS::Sop/Noise_Modifier::1.1?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Sun Apr  5 10:47:51 2020
 

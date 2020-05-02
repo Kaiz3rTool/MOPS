@@ -10,7 +10,7 @@ Inputs:       1 to 1
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Sun Apr 14 22:49:50 2019
+Modified:     Mon Apr 15 02:49:50 2019
 
 Operator:     MOPS::Noise_Patterns::1.1
 Label:        MOPs Noise Patterns
@@ -24,5 +24,19 @@ Inputs:       1 to 1
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Sun Apr 14 22:41:22 2019
+Modified:     Wed Jun 19 17:34:02 2019
+
+Operator:     MOPS::Noise_Patterns::1.2
+Label:        MOPs Noise Patterns
+Path:         oplib:/MOPS::Sop/Noise_Patterns::1.2?MOPS::Sop/Noise_Patterns::1.2
+Icon:         opdef:/MOPS::Sop/Noise_Patterns::1.2?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Sun Apr  5 10:44:46 2020
 

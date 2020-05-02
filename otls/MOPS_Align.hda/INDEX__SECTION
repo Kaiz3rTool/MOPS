@@ -1,5 +1,5 @@
 Operator:     MOPS::Align::1.0
-Label:        MOPS Align
+Label:        MOPs Align
 Path:         oplib:/MOPS::Sop/Align::1.0?MOPS::Sop/Align::1.0
 Icon:         opdef:/MOPS::Sop/Align::1.0?IconSVG
 Table:        Sop
@@ -10,5 +10,33 @@ Inputs:       1 to 1
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Mon Apr 15 21:10:36 2019
+Modified:     Sun Nov 10 20:51:29 2019
+
+Operator:     MOPS::Align::1.1
+Label:        MOPs Align
+Path:         oplib:/MOPS::Sop/Align::1.1?MOPS::Sop/Align::1.1
+Icon:         opdef:/MOPS::Sop/Align::1.1?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Sun Dec  1 20:13:21 2019
+
+Operator:     MOPS::Align::1.2
+Label:        MOPs Align
+Path:         oplib:/MOPS::Sop/Align::1.2?MOPS::Sop/Align::1.2
+Icon:         opdef:/MOPS::Sop/Align::1.2?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Mar 19 21:40:41 2020
 

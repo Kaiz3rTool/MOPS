@@ -57,8 +57,8 @@
         name    "ignore_no_falloff"
         label   "Ignore Zero Falloff Prims"
         type    toggle
-        default { "on" }
-        disablewhen "{ do_weight 0 }"
+        default { "off" }
+        disablewhen "{ do_weight == 0 }"
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
@@ -122,6 +122,14 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "falloff_attribute"
+        label   "Falloff Attribute"
+        type    string
+        default { "mops_falloff" }
+        disablewhen "{ do_weight == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "do_vexpression"
         label   "Use VEXpression"
         type    toggle
@@ -135,6 +143,7 @@
         label   "Vexpression"
         type    string
         default { "// translate = {0,0,0};\n// rotate = {0,0,0};\n// scale = {1,1,1};\n// pscale = 1;\n// local = 1;" }
+        disablewhen "{ do_vexpression 0 }"
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "editor" "1" }
         parmtag { "editorlang" "vex" }
